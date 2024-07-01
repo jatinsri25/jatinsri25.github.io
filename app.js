@@ -40,3 +40,31 @@ app.post('/submit', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+document.addEventListener("DOMContentLoaded", function () {
+    // ... your existing tab code ... //
+
+    const toggleButton = document.getElementById('night-mode-toggle');
+    const body = document.body;
+    const icon = toggleButton.querySelector('i');
+
+    toggleButton.addEventListener('click', function () {
+        body.classList.toggle('dark-mode');
+
+        // Update Icon
+        if (body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+    });
+
+    // Check user preference on page load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+});

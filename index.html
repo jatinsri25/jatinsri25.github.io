@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
@@ -34,89 +35,83 @@
                 });
             }
         });
+        document.addEventListener("DOMContentLoaded", function () {
+                // ... your existing tab code ... //
 
+                const toggleButton = document.getElementById('night-mode-toggle');
+                const body = document.body;
+                const icon = toggleButton.querySelector('i');
 
+                toggleButton.addEventListener('click', function () {
+                    body.classList.toggle('dark-mode');
 
+                    // Update Icon
+                    if (body.classList.contains('dark-mode')) {
+                        icon.classList.remove('fa-moon');
+                        icon.classList.add('fa-sun');
+                    } else {
+                        icon.classList.remove('fa-sun');
+                        icon.classList.add('fa-moon');
+                    }
+                });
 
-
-
+                // Check user preference on page load
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    body.classList.add('dark-mode');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            });
     </script>
 </head>
 
 <body>
-
-
     <div id="header">
         <div class="container">
             <div class="top">
                 <nav>
-                    <p>
-                    <h1>HI EVERYONE!👋 </h1>
-                    </p>
-                    <div class="image"><img src="" class="logo">
-                    </div>
+                    <h1 style="color: #A69080;font-weight: 500px;">HI EVERYONE!👋</h1>
+                    <div class="image"><img src="" class="logo"></div>
                     <ul>
                         <li><a href="#header">Home</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li>
+                            <button id="night-mode-toggle" aria-label="Toggle Night Mode">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
                     </ul>
                 </nav>
             </div>
-            <div class="header-text">
-
-                <div>
-                    <h1>I'M<br> <span>JATIN SRIVASTAVA</span></h1>
+            <div class="homepage">
+                <div class="header-text">
+                    <br>
+                    <h1 style="color:#A69080;font-weight: 100px;">I'M<br> <span style="color:#93785B;">JATIN
+                            SRIVASTAVA</span></h1>
                 </div>
-                <div data-aos="fade-right" class="home__img">
-                    <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
-                        <mask id="mask0" mask-type="alpha">
-                            <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
-                        130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
-                        97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
-                        0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-                        </mask>
-                        <g mask="url(#mask0)">
-                            <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 
-                        165.547 130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 
-                        129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
-                        -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
-
-                            <image class="home__blob-img" x="12" y="18"
-                                href="images/Screenshot 2023-04-12 203045.png" />
-                        </g>
-                    </svg>
-                </div>
+                <div class="glassmorphism-blob"></div>
             </div>
-
         </div>
-
-
-    </div>
     </div>
 
-    <!-- --------about------------->
     <div id="about">
-        <h1 class="sub-about">About Me</h1>
+        <h1 class="sub-about"
+            style="color: #AC8968; background-color: rgba(133, 100, 46, 0.612); backdrop-filter: blur(10px);">About Me</h1>
         <div class="about">
-            <div class="about-col-2">
-
-
-
+            <div class="about-col-2" style="color: #283618;">
                 <div class="tab-titles">
                     <p class="tab-links active-link" data-tab="skills">Skills</p>
                     <p class="tab-links" data-tab="education">Education </p>
                     <p class="tab-links" data-tab="achievements">Achievements</p>
-
-
-
                 </div>
-                <div class="tab-contents  active-tab" id="skills">
+                <div class="tab-contents active-tab" id="skills">
                     <ul>
-                        <li><span>UI/UX</span><br>I am currently learning figma</li>
-                        <li><span>Web Development</span><br>Proficient in both front-end and back-end development,
-                            with experience in HTML, CSS, JavaScript, and server-side like Node.JS</li>
+                        <li><span>UI/UX</span><br>I am currently learning Figma</li>
+                        <li><span>Web Development</span><br>Proficient in both front-end and back-end development, with
+                            experience in HTML, CSS, JavaScript, and server-side like Node.JS</li>
                         <li><span>Web3</span><br>Proficient in making DApps by using blockchain</li>
                     </ul>
                 </div>
@@ -124,36 +119,31 @@
                     <ul>
                         <li><span>LFS DHARAMPUR</span><br>ICSE</li>
                         <li><span>Ajay Kumar Garg Engineering College</span><br>IT</li>
-
                     </ul>
                 </div>
-                <div class="tab-contents  active-tab" id="achievements">
+                <div class="tab-contents active-tab" id="achievements">
                     <ul>
-                        <li><span>Made a"chat application " using React JS and Firebase.</span></li>
-                        <li><span>Made a " Draw and Doddle app" using Javascript</span></li>
-                        <li><span>Login/sign up page project</span></li>
-                        <li><span>Made a " Todo-List App" using Javascript</span></li>
-                        <li><span>made a "weather app" Javascript.</span></li>
-                        <li><span>Making a "Nft Marketplace" using Solidity</span></li>
+                        <li>Made a "chat application" using React JS and Firebase.</li>
+                        <li>Made a "Draw and Doodle app" using JavaScript</li>
+                        <li>Login/sign up page project</li>
+                        <li>Made a "Todo-List App" using JavaScript</li>
+                        <li>Made a "weather app" using JavaScript.</li>
+                        <li>Making a "Nft Marketplace" using Solidity</li>
                     </ul>
                 </div>
-
             </div>
             <div class="aboutimg">
                 <img src="images/1665566454567.png">
             </div>
-
         </div>
     </div>
-    <!------------------services------------>
-    <br>
+
     <div id="services">
-        <h1 class="sub-title">My Services</h1>
+        <h1 class="sub-title" style="padding-left: 70px;">My Services</h1>
         <div class="services">
             <br>
             <div class="services-list">
                 <div class="card">
-
                     <i class="fa-solid fa-code"></i>
                     <h2>Programming</h2>
                     <p>
@@ -163,7 +153,6 @@
                     </p>
                 </div>
                 <div class="card">
-
                     <i class="fa-brands fa-css3"></i>
                     <h2>Web Design</h2>
                     <p>
@@ -177,12 +166,11 @@
                     <h2>UI/UX</h2>
                     <p>
                     <figcaption>
-                        <h3>I can make a figma design of your project</h3>
+                        <h3>I can make a Figma design of your project</h3>
                     </figcaption>
                     </p>
                 </div>
                 <div class="card">
-
                     <i class="fa-brands fa-app-store-ios"></i>
                     <h2>Web3</h2>
                     <p>
@@ -191,69 +179,96 @@
                     </figcaption>
                     </p>
                 </div>
-
             </div>
-
-
         </div>
     </div>
 
-    <!-- ---------------contact------------------- -->
     <div id="contact">
-        <h1 class="sub-title1">Contact Me</h1>
+        <h1 class="sub-title1" style="color:#AC8968;">Contact Me</h1>
         <div class="contactme">
-            <div class="container">
-                <div class="row">
-                    <div class="contact-right">
-                        <form action="/submit" method="POST">
-                            <input type="text" name="name" placeholder="Your Name" required>
-                            <input type="email" name="email" placeholder="Your Email" required>
-                            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-                            <br>
-                            <button type="submit" class="btn">Submit</button>
-                            <br>
-                            <br>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <form action="/send_email.php" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                <br>
+                <button type="submit" class="btn">Submit</button>
+                <br><br>
+            </form>
+            <br><br>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer__bg">
-            <div class="mail">
-                <p>
-                    <i class="fa-solid fa-paper-plane" style="color: #000000;"></i> srivastavajatin9898@gmail.com
-                </p>
-            </div>
-            <div class="left">
-                <br>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=100008740483475"><i
-                            class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/jxtin.xd/"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/jatin-srivastava-7a4648122"><i
-                            class="fa-brands fa-linkedin"></i></a>
-                </div>
-                <br>
-            </div>
-    </footer>
-
-
-
+<div class="footer">
+    <div class="row">
+        <div class="col-md-4 footer-copywright">
+            <h3>Designed and Developed by Jatin</h3>
+        </div>
+        <div class="col-md-4 footer-copywright">
+            <h3>Copyright ©
+                <script>document.write(new Date().getFullYear())</script>
+            </h3>
+        </div>
+        <div class="col-md-4 footer-body">
+            <ul class="footer-icons">
+                <li class="social-icons">
+                    <a href="https://github.com/soumyajit4419" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li class="social-icons">
+                    <a href="https://twitter.com/Soumyajit4419" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="social-icons">
+                    <a href="https://www.linkedin.com/in/soumyajit4419/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li class="social-icons">
+                    <a href="https://www.instagram.com/soumyajit4419" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-    </div>
+</div>
 
+    <style>
+        .footer {
+            background-color: #2b2b2b;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
 
+                .footer-copywright {
+            margin-bottom: 10px;
+        }
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            offset: 300,
-            duration: 2000
-        });
-    </script>
-</body>
+        .footer-icons {
+            list-style: none;
+            padding: 0;
+        }
 
-</html>
+        .social-icons {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+    </style>
+    
+    <script src="https://kit.fontawesome.com/46aa7d6506.js" crossorigin="anonymous"></script>
+    </body>
+    
+    </html>

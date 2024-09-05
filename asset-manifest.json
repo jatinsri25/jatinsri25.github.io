@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/jatinsri25.github.io/static/css/main.a579e2fb.css",
+    "main.js": "/jatinsri25.github.io/static/js/main.76bd0134.js",
+    "index.html": "/jatinsri25.github.io/index.html",
+    "main.a579e2fb.css.map": "/jatinsri25.github.io/static/css/main.a579e2fb.css.map",
+    "main.76bd0134.js.map": "/jatinsri25.github.io/static/js/main.76bd0134.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a579e2fb.css",
+    "static/js/main.76bd0134.js"
+  ]
+}

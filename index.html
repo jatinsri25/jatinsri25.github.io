@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/46aa7d6506.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+
+            // Initially hide all tab contents except for "Skills"
+            for (var i = 1; i < tabcontents.length; i++) {
+                tabcontents[i].classList.remove("active-tab");
+            }
+
+            // Show "Skills" tab content by default
+            document.getElementById("skills").classList.add("active-tab");
+
+            for (var i = 0; i < tablinks.length; i++) {
+                tablinks[i].addEventListener("click", function () {
+                    for (var j = 0; j < tablinks.length; j++) {
+                        tablinks[j].classList.remove("active-link");
+                    }
+                    for (var k = 0; k < tabcontents.length; k++) {
+                        tabcontents[k].classList.remove("active-tab");
+                    }
+
+                    this.classList.add("active-link");
+                    var tabId = this.getAttribute("data-tab");
+                    document.getElementById(tabId).classList.add("active-tab");
+                });
+            }
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+                // ... your existing tab code ... //
+
+                const toggleButton = document.getElementById('night-mode-toggle');
+                const body = document.body;
+                const icon = toggleButton.querySelector('i');
+
+                toggleButton.addEventListener('click', function () {
+                    body.classList.toggle('dark-mode');
+
+                    // Update Icon
+                    if (body.classList.contains('dark-mode')) {
+                        icon.classList.remove('fa-moon');
+                        icon.classList.add('fa-sun');
+                    } else {
+                        icon.classList.remove('fa-sun');
+                        icon.classList.add('fa-moon');
+                    }
+                });
+
+                // Check user preference on page load
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    body.classList.add('dark-mode');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                }
+            });
+    </script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <div class="top">
+                <nav>
+                    <h1 style="color: #A69080;font-weight: 500px;">HI EVERYONE!👋</h1>
+                    <div class="image"><img src="" class="logo"></div>
+                    <ul>
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li>
+                            <button id="night-mode-toggle" aria-label="Toggle Night Mode">
+                                <i class="fas fa-moon"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="homepage">
+                <div class="header-text">
+                    <br>
+                    <h1 style="color:#A69080;font-weight: 100px;">I'M<br> <span style="color:#93785B;">JATIN
+                            SRIVASTAVA</span></h1>
+                </div>
+                <div class="glassmorphism-blob"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="about">
+        <h1 class="sub-about"
+            style="color: #AC8968; background-color: rgba(133, 100, 46, 0.612); backdrop-filter: blur(10px);">About Me</h1>
+        <div class="about">
+            <div class="about-col-2" style="color: #283618;">
+                <div class="tab-titles">
+                    <p class="tab-links active-link" data-tab="skills">Skills</p>
+                    <p class="tab-links" data-tab="education">Education </p>
+                    <p class="tab-links" data-tab="achievements">Achievements</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>UI/UX</span><br>I am currently learning Figma</li>
+                        <li><span>Web Development</span><br>Proficient in both front-end and back-end development, with
+                            experience in HTML, CSS, JavaScript, and server-side like Node.JS</li>
+                        <li><span>Web3</span><br>Proficient in making DApps by using blockchain</li>
+                    </ul>
+                </div>
+                <div class="tab-contents active-tab" id="education">
+                    <ul>
+                        <li><span>LFS DHARAMPUR</span><br>ICSE</li>
+                        <li><span>Ajay Kumar Garg Engineering College</span><br>IT</li>
+                    </ul>
+                </div>
+                <div class="tab-contents active-tab" id="achievements">
+                    <ul>
+                        <li>Made a "chat application" using React JS and Firebase.</li>
+                        <li>Made a "Draw and Doodle app" using JavaScript</li>
+                        <li>Login/sign up page project</li>
+                        <li>Made a "Todo-List App" using JavaScript</li>
+                        <li>Made a "weather app" using JavaScript.</li>
+                        <li>Making a "Nft Marketplace" using Solidity</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="aboutimg">
+                <img src="images/1665566454567.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="services">
+        <h1 class="sub-title" style="padding-left: 70px;">My Services</h1>
+        <div class="services">
+            <br>
+            <div class="services-list">
+                <div class="card">
+                    <i class="fa-solid fa-code"></i>
+                    <h2>Programming</h2>
+                    <p>
+                    <figcaption>
+                        <h3>I can write code in C++ and Java</h3>
+                    </figcaption>
+                    </p>
+                </div>
+                <div class="card">
+                    <i class="fa-brands fa-css3"></i>
+                    <h2>Web Design</h2>
+                    <p>
+                    <figcaption>
+                        <h3>I can make a full stack website for you</h3>
+                    </figcaption>
+                    </p>
+                </div>
+                <div class="card">
+                    <i class="fa-brands fa-figma"></i>
+                    <h2>UI/UX</h2>
+                    <p>
+                    <figcaption>
+                        <h3>I can make a Figma design of your project</h3>
+                    </figcaption>
+                    </p>
+                </div>
+                <div class="card">
+                    <i class="fa-brands fa-app-store-ios"></i>
+                    <h2>Web3</h2>
+                    <p>
+                    <figcaption>
+                        <h3>I can make DApps for you</h3>
+                    </figcaption>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact">
+        <h1 class="sub-title1" style="color:#AC8968;">Contact Me</h1>
+        <div class="contactme">
+            <form action="/send_email.php" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                <br>
+                <button type="submit" class="btn">Submit</button>
+                <br><br>
+            </form>
+            <br><br>
+        </div>
+    </div>
+
+<div class="footer">
+    <div class="row">
+        <div class="col-md-4 footer-copywright">
+            <h3>Designed and Developed by Jatin</h3>
+        </div>
+        <div class="col-md-4 footer-copywright">
+            <h3>Copyright ©
+                <script>document.write(new Date().getFullYear())</script>
+            </h3>
+        </div>
+        <div class="col-md-4 footer-body">
+            <ul class="footer-icons">
+                <li class="social-icons">
+                    <a href="https://github.com/soumyajit4419" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+                <li class="social-icons">
+                    <a href="https://twitter.com/Soumyajit4419" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </li>
+                <li class="social-icons">
+                    <a href="https://www.linkedin.com/in/soumyajit4419/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </li>
+                <li class="social-icons">
+                    <a href="https://www.instagram.com/soumyajit4419" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <style>
+        .footer {
+            background-color: #2b2b2b;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+                .footer-copywright {
+            margin-bottom: 10px;
+        }
+
+        .footer-icons {
+            list-style: none;
+            padding: 0;
+        }
+
+        .social-icons {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+        }
+    </style>
+    
+    <script src="https://kit.fontawesome.com/46aa7d6506.js" crossorigin="anonymous"></script>
+    </body>
+    
+    </html>

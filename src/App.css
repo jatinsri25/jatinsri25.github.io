@@ -1,19 +1,29 @@
+/* Base styles with Poppins font */
 .app {
   font-family: 'Poppins', sans-serif;
   line-height: 1.5;
   color: var(--clr-fg);
   background-color: var(--clr-bg);
+  transition: all 0.3s ease;
+  /* Smooth theme transitions */
 }
 
+/* Light theme variables */
 .light {
   --clr-bg: #bbb6e9;
-  --clr-bg-alt: #fff;
-  --clr-fg: #555;
-  --clr-fg-alt: #444;
+  --clr-bg-alt: #ffffff;
+  --clr-fg: #555555;
+  --clr-fg-alt: #444444;
   --clr-primary: #2978b5;
   --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  /* Enhanced glassmorphism for light theme */
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
 
+/* Dark theme variables */
 .dark {
   --clr-bg: #0a0c12;
   --clr-bg-alt: #2a2f4c;
@@ -22,33 +32,52 @@
   --clr-primary: #90a0d9;
   --shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+  /* Enhanced glassmorphism for dark theme */
+  --glass-bg: rgba(10, 12, 18, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
+/* Layout */
 main {
   max-width: 1100px;
   width: 95%;
   margin: 0 auto;
 }
 
+/* Section styling */
 .section {
   margin-top: 5em;
+  padding: 2em;
+  background: var(--glass-bg);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  box-shadow: var(--glass-shadow);
 }
 
 .section__title {
   text-align: center;
   margin-bottom: 1em;
   text-transform: uppercase;
+  position: relative;
+  z-index: 1;
 }
 
+/* Utility classes */
 .center {
   display: flex;
   align-items: center;
 }
 
+/* Link styles */
 .link {
   color: var(--clr-primary);
   padding: 0 0 0.3em 0;
   position: relative;
+  text-decoration: none;
 }
 
 .link:hover {
@@ -81,6 +110,7 @@ main {
   color: var(--clr-fg);
 }
 
+/* Button styles */
 .btn {
   display: block;
   cursor: pointer;
@@ -89,6 +119,10 @@ main {
   font-size: 0.9rem;
   text-transform: lowercase;
   transition: transform 0.2s ease-in-out;
+  background: var(--glass-bg);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 6px;
 }
 
 .btn--outline {
@@ -112,8 +146,7 @@ main {
   bottom: 0;
   left: 0;
   top: 0;
-  z-index: -1;
-  transition: right 0.2s ease-in-out;
+  transition: right 0.2s ease-in;
 }
 
 .btn--outline:hover:before,
@@ -145,8 +178,10 @@ main {
   transform: translateY(-5px);
 }
 
+/* Responsive design */
 @media (max-width: 600px) {
   .section {
     margin-top: 4em;
+    padding: 1.5em;
   }
 }

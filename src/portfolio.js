@@ -29,7 +29,7 @@ const projects = [
     description:
       'Built a blockchain-based voting system with ML-powered facial recognition for voter verification. Implemented smart contracts using Solidity for secure vote recording and integrated TensorFlow.js for real-time facial recognition. Created a responsive React frontend with Web3.js for blockchain interaction.',
     stack: ['Solidity', 'React', 'TensorFlow.js', 'Web3.js', 'Node.js', 'MongoDB'],
-    sourceCode: 'https://github.com/jatinsri25/decentralized-voting',
+    sourceCode: 'https://github.com/jatinsri25/Maj/tree/main/Major%20Project',
     livePreview: 'https://github.com',
   },
   {

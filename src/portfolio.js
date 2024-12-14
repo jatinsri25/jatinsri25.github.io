@@ -25,10 +25,11 @@ const projects = [
     livePreview: 'https://github.com',
   },
   {
-    name: 'AI Resume Builder',
-    description: 'Built an AI-driven resume builder using the MERN stack and Strapi, providing real-time content recommendations and formatting adjustments. Applied machine learning to generate tailored, professional resumes. Showcased skills in full-stack development, API integration, and user-centric design.',
-    stack: ['MERN', 'Strapi', 'Tailwind', 'Vite'],
-    sourceCode: 'https://github.com/jatinsri25/ResuMech',
+    name: 'Decentralized Voting System',
+    description:
+      'Built a blockchain-based voting system with ML-powered facial recognition for voter verification. Implemented smart contracts using Solidity for secure vote recording and integrated TensorFlow.js for real-time facial recognition. Created a responsive React frontend with Web3.js for blockchain interaction.',
+    stack: ['Solidity', 'React', 'TensorFlow.js', 'Web3.js', 'Node.js', 'MongoDB'],
+    sourceCode: 'https://github.com/jatinsri25/decentralized-voting',
     livePreview: 'https://github.com',
   },
   {

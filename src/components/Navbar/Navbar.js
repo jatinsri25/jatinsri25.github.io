@@ -103,6 +103,7 @@ const Navbar = () => {
           role='button'
           tabIndex={0}
           onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && setShowNavList(false)}
+          aria-label='Close navigation menu'
         />
       )}
     </nav>

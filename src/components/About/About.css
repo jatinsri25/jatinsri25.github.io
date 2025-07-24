@@ -426,3 +426,69 @@
   visibility: visible !important;
   opacity: 1 !important;
 }
+
+/* Fix social links specifically */
+.about__social {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  margin-top: 20px !important;
+}
+
+.about__social-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px 20px !important;
+  background: var(--clr-bg-alt) !important;
+  border: 2px solid var(--clr-primary) !important;
+  border-radius: 12px !important;
+  color: var(--clr-fg-alt) !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: all 0.3s ease !important;
+  min-width: 80px !important;
+  height: 44px !important;
+}
+
+.about__social-link:hover {
+  background: var(--clr-primary) !important;
+  color: var(--clr-bg) !important;
+  transform: translateY(-2px) !important;
+}
+
+.about__social-link span {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: inherit !important;
+}
+
+/* Ensure resume button is also properly styled */
+.about__resume-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px 32px !important;
+  background: var(--clr-primary) !important;
+  color: var(--clr-bg) !important;
+  text-decoration: none !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  margin-bottom: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+.about__resume-btn:hover {
+  background: var(--clr-primary-dark) !important;
+  transform: translateY(-2px) !important;
+}
+
+.about__resume-btn span {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: inherit !important;
+}

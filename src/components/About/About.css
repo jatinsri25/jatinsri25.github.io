@@ -356,3 +356,73 @@
   visibility: visible !important;
   opacity: 1 !important;
 }
+
+/* DEPLOYMENT FIX: Force absolute positioning for About content */
+.about__content {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1000 !important;
+  width: 90% !important;
+  max-width: 800px !important;
+  background: var(--clr-bg) !important;
+  padding: 40px !important;
+  border-radius: 20px !important;
+  border: 2px solid var(--clr-primary) !important;
+}
+
+.about__greeting,
+.about__role-container,
+.about__description,
+.about__actions {
+  position: relative !important;
+  z-index: 1001 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.about__greeting-text,
+.about__name,
+.about__role,
+.about__role-prefix,
+.about__role-text,
+.about__desc {
+  color: var(--clr-fg-alt) !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+}
+
+.about__name {
+  font-size: 48px !important;
+  font-weight: 800 !important;
+  margin: 20px 0 !important;
+}
+
+.about__role {
+  font-size: 32px !important;
+  font-weight: 600 !important;
+  margin: 20px 0 !important;
+}
+
+.about__desc {
+  font-size: 18px !important;
+  line-height: 1.6 !important;
+  margin: 20px 0 !important;
+  padding: 20px !important;
+}
+
+.about__actions {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  margin-top: 30px !important;
+}
+
+.about__resume-btn,
+.about__social-link {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}

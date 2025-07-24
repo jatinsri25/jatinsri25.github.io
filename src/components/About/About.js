@@ -4,29 +4,31 @@ import './About.css'
 const About = () => {
   const { name, role, description, resume, social } = about
 
+  // DEBUG: Force log the data on both local and deployed
+  console.log('DEPLOYED DEBUG - About data:', { name, role, description, resume, social })
+  console.log('DEPLOYED DEBUG - Name exists:', !!name, 'Role exists:', !!role)
+
   return (
     <section id="about" className='about section'>
       <div className='about__container'>
         <div className='about__content'>
-          {name && (
-            <div className='about__greeting'>
-              <span className='about__greeting-text'>Hello, I&apos;m</span>
-              <h1 className='about__name'>
-                {name}
-                <span className='about__name-dot'>.</span>
-              </h1>
-            </div>
-          )}
+          {/* Force render greeting without conditional */}
+          <div className='about__greeting'>
+            <span className='about__greeting-text'>Hello, I&apos;m</span>
+            <h1 className='about__name'>
+              {name || 'NAME_MISSING'}
+              <span className='about__name-dot'>.</span>
+            </h1>
+          </div>
 
-          {role && (
-            <div className='about__role-container'>
-              <h2 className='about__role'>
-                <span className='about__role-prefix'>A</span>
-                <span className='about__role-text'>{role}</span>
-                <div className='about__role-underline' />
-              </h2>
-            </div>
-          )}
+          {/* Force render role without conditional */}
+          <div className='about__role-container'>
+            <h2 className='about__role'>
+              <span className='about__role-prefix'>A</span>
+              <span className='about__role-text'>{role || 'ROLE_MISSING'}</span>
+              <div className='about__role-underline' />
+            </h2>
+          </div>
 
           {description && (
             <div className='about__description'>

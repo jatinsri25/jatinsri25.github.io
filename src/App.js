@@ -1,4 +1,6 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import { ThemeContext } from './contexts/theme'
 import Header from './components/Header/Header'
 import About from './components/About/About'
@@ -12,11 +14,32 @@ import './App.css'
 const App = () => {
   const [{ themeName }] = useContext(ThemeContext)
 
+  useEffect(() => {
+    // Initialize AOS with custom settings for professional animations
+    AOS.init({
+      duration: 1000,
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 120,
+      delay: 100,
+      // Disable animations on mobile for better performance
+      disable: window.innerWidth < 768 ? 'mobile' : false,
+    })
+
+    // Refresh AOS on window resize
+    const handleResize = () => {
+      AOS.refresh()
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <div id='top' className={`${themeName} app`}>
       <Header />
 
-      <main>
+      <main className="main-content">
         <About />
         <Projects />
         <Skills />

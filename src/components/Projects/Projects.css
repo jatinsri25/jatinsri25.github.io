@@ -1,0 +1,66 @@
+/* Modern Projects Section Styles */
+.projects {
+    padding: var(--space-4xl) 0;
+    position: relative;
+}
+
+.projects__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-xl);
+}
+
+.projects__header {
+    text-align: center;
+    margin-bottom: var(--space-4xl);
+}
+
+.projects__subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--clr-fg);
+    opacity: 0.8;
+    max-width: 600px;
+    margin: var(--space-lg) auto 0;
+    line-height: 1.6;
+}
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-2xl);
+    align-items: start;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .projects {
+        padding: var(--space-3xl) 0;
+    }
+
+    .projects__container {
+        padding: 0 var(--space-lg);
+    }
+
+    .projects__header {
+        margin-bottom: var(--space-3xl);
+    }
+
+    .projects__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .projects__container {
+        padding: 0 var(--space-md);
+    }
+
+    .projects__header {
+        margin-bottom: var(--space-2xl);
+    }
+
+    .projects__grid {
+        gap: var(--space-lg);
+    }
+}

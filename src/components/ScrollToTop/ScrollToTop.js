@@ -6,20 +6,32 @@ const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const toggleVisibility = () =>
-      window.pageYOffset > 500 ? setIsVisible(true) : setIsVisible(false)
+    const toggleVisibility = () => {
+      setIsVisible(window.pageYOffset > 500)
+    }
 
     window.addEventListener('scroll', toggleVisibility)
     return () => window.removeEventListener('scroll', toggleVisibility)
   }, [])
 
-  return isVisible ? (
-    <div className='scroll-top'>
-      <a href='#top' aria-label='top'>
-        <ArrowUpwardIcon fontSize='large' />
-      </a>
-    </div>
-  ) : null
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
+  return (
+    <button
+      className={`scroll-top ${isVisible ? 'scroll-top--visible' : ''}`}
+      onClick={scrollToTop}
+      aria-label='Scroll to top'
+      type='button'
+    >
+      <ArrowUpwardIcon className='scroll-top__icon' />
+      <div className='scroll-top__glow' />
+    </button>
+  )
 }
 
 export default ScrollToTop

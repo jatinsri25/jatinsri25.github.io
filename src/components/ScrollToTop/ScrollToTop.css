@@ -1,12 +1,156 @@
+/* Modern Scroll to Top Button */
 .scroll-top {
   position: fixed;
-  bottom: 2em;
-  right: 4em;
-  background-color: transparent;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-light));
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  z-index: 1000;
+  overflow: hidden;
 }
 
-@media (max-width: 900px) {
+.scroll-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-top:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: var(--shadow-2xl);
+  background: linear-gradient(135deg, var(--clr-primary-dark), var(--clr-primary));
+}
+
+.scroll-top:active {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.scroll-top__icon {
+  position: relative;
+  z-index: 2;
+  transition: transform var(--transition-base);
+  font-size: 1.5rem !important;
+}
+
+.scroll-top:hover .scroll-top__icon {
+  transform: translateY(-2px);
+}
+
+.scroll-top__glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  border-radius: 50%;
+}
+
+.scroll-top:hover .scroll-top__glow {
+  opacity: 1;
+}
+
+/* Pulse animation */
+.scroll-top::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: var(--clr-primary);
+  animation: pulse-ring 2s ease-out infinite;
+  z-index: -1;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+
+  80% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
   .scroll-top {
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    width: 50px;
+    height: 50px;
+  }
+
+  .scroll-top__icon {
+    font-size: 1.25rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-top {
+    bottom: var(--space-md);
+    right: var(--space-md);
+    width: 45px;
+    height: 45px;
+  }
+
+  .scroll-top__icon {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .scroll-top,
+  .scroll-top__icon,
+  .scroll-top__glow {
+    transition: none;
+    animation: none;
+  }
+
+  .scroll-top:hover,
+  .scroll-top:hover .scroll-top__icon {
+    transform: none;
+  }
+
+  .scroll-top::before {
     display: none;
+  }
+}
+
+/* High Contrast */
+@media (prefers-contrast: high) {
+  .scroll-top {
+    border: 2px solid white;
+    background: var(--clr-primary);
+  }
+
+  .scroll-top:hover {
+    border-color: var(--clr-fg);
   }
 }

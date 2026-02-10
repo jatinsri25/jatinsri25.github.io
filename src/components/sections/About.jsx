@@ -33,10 +33,12 @@ const About = () => {
                 </h2>
 
                 <div className="max-w-3xl mx-auto text-muted text-lg leading-relaxed mb-16 text-center">
+                    <p className="mb-6">
+                        I used to ship full stack webapps, now I teach machines to think (and sometimes they outsmart me).
+                        I'm obsessed with <span className="text-white">AI/ML</span> — mostly deep learning and applied AI — while keeping my roots strong in <span className="text-white">Full Stack Development</span>.
+                    </p>
                     <p>
-                        I'm a <span className="text-white">Senior Frontend Engineer</span> and <span className="text-white">ML Data Specialist</span> with a unique blend of skills in web development and artificial intelligence.
-                        Currently optimizing autonomous vehicle data at Zensar Technologies, I also have a strong background in building scalable full-stack applications using the MERN stack.
-                        I love transforming complex data problems into intuitive user interfaces.
+                        I like building products that somehow end up working. From optimizing autonomous vehicle datasets at Zensar to building sovereign multi-agent engines like Veltrix, I thrive on solving complex problems.
                     </p>
                 </div>
 

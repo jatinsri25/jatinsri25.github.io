@@ -2,6 +2,8 @@
 
 A modern, animated developer portfolio website built with React, Vite, Tailwind CSS, and Framer Motion.
 
+🔗 **Live Demo:** [https://portfolio-jatin-srivastavas-projects-4aa3e419.vercel.app](https://portfolio-jatin-srivastavas-projects-4aa3e419.vercel.app)
+
 ## 🚀 Features
 
 - **Modern Stack**: Built with React 18, Vite, and Tailwind CSS.

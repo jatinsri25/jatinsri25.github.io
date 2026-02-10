@@ -20,7 +20,8 @@ const Hero = () => {
                             Jatin <span className="text-gradient">Srivastava</span>
                         </h1>
                         <p className="text-muted text-lg md:text-xl max-w-lg mb-8 leading-relaxed">
-                            Specializing in <span className="text-white">Autonomous Vehicle AI</span> data pipelines and <span className="text-white">Full Stack Web Development</span>.
+                            <span className="font-mono text-primary block mb-2 text-sm tracking-wider">tldr; learnt everything by breaking things first.</span>
+                            Used to ship full stack webapps, now I teach machines to think. Obsessed with <span className="text-white">Deep Learning</span> and <span className="text-white">Applied AI</span>.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">

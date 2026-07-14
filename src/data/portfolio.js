@@ -33,12 +33,20 @@ export const projects = [
         demo: "https://ai-todo.demo",
     },
     {
-        title: "Veltrix",
-        description: "Sovereign Multi-Agent Compliance Engine. A 'Figma for AI Agents' platform enabling real-time collaboration on agent workflows. Features self-healing infrastructure loops, structured GraphRAG memory, and secure sandboxed execution for enterprise automation.",
+        title: "Prayaas",
+        description: "Civic Tech AI platform converting citizen voice and text reports into structured tickets. Built a 6-stage pipeline for transcription, PII redaction, prompt-injection guardrails, token budgeting, LLM formatting, and automated response generation.",
         image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2565&auto=format&fit=crop",
-        tech: ["MERN", "LangChain", "LangGraph", "RAG", "Vector DB", "GenAI"],
+        tech: ["Next.js", "FastAPI", "Google Gemini API", "Redis", "PostgreSQL"],
         github: "https://github.com/jatinsri25",
-        demo: "https://veltrix.demo",
+        demo: "https://prayaas.demo",
+    },
+    {
+        title: "RAG-IT",
+        description: "Production-grade RAG system for codebase Q&A with hybrid retrieval, cross-encoder reranking, and self-correcting relevance grading to improve answer faithfulness and citation accuracy.",
+        image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2560&auto=format&fit=crop",
+        tech: ["Python", "ChromaDB", "FastAPI", "BM25", "Gemini API"],
+        github: "https://github.com/jatinsri25/RAG-IT",
+        demo: "https://rag-it.demo",
     },
     {
         title: "QuirkQuack",
@@ -47,7 +55,7 @@ export const projects = [
         tech: ["React", "TypeScript", "Socket.IO", "Prisma", "PostgreSQL"],
         github: "https://github.com/jatinsri25",
         demo: "https://quirkquack.demo",
-    },
+    }
 ];
 
 export const skills = {

@@ -38,7 +38,7 @@ const About = () => {
                         I'm obsessed with <span className="text-white">AI/ML</span> — mostly deep learning and applied AI — while keeping my roots strong in <span className="text-white">Full Stack Development</span>.
                     </p>
                     <p>
-                        I like building products that somehow end up working. From optimizing autonomous vehicle datasets at Zensar to building sovereign multi-agent engines like Veltrix, I thrive on solving complex problems.
+                        I like building products that somehow end up working. From optimizing autonomous vehicle datasets at Zensar to building civic AI platforms like Prayaas, I thrive on solving complex problems.
                     </p>
                 </div>
 

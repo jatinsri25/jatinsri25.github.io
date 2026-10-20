@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en" id="top">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAG-IT | Jatin Srivastava</title>
+  <meta name="description" content="Project notes by Jatin Srivastava: retrieval / language models, implementation decisions and evidence.">
+  <meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171613" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="RAG-IT | Jatin Srivastava">
+  <meta property="og:description" content="Project notes by Jatin Srivastava: retrieval / language models, implementation decisions and evidence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jatinsri25.github.io/work/rag-it.html">
+  <meta property="og:site_name" content="Jatin Srivastava">
+  <meta property="og:locale" content="en_IN">
+  <link rel="canonical" href="https://jatinsri25.github.io/work/rag-it.html">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/newsreader-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/ibm-plex-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="sheet">
+<header class="site-header">
+  <div class="identity"><a class="initials" href="/" aria-label="JS. Jatin Srivastava, home">JS.</a><span>AI &amp; DATA ENGINEER</span><span class="location">NOIDA, INDIA</span></div>
+  <nav aria-label="Profile links">
+    <a href="/assets/jatin-srivastava-resume.pdf">Résumé <span aria-hidden="true">↗</span></a>
+    <a href="mailto:srivastavajatin9898@gmail.com">Email</a>
+    <a href="https://github.com/jatinsri25">GitHub</a>
+    <a href="https://linkedin.com/in/jatinsri25">LinkedIn</a>
+    <a href="https://leetcode.com/u/jatinsri25/">LeetCode</a>
+  </nav>
+</header>
+<main id="main"><section class="case-hero grid"><div class="index">02<span>PROJECT</span></div><div class="main-col"><a class="mono" href="/#projects">← Selected work</a><p class="eyebrow case-category">Retrieval / language models</p><h1>RAG-IT.</h1><p class="lede">Finding evidence in a codebase.</p><div class="link-row"><a href="https://github.com/jatinsri25/RAG-IT">View repository ↗</a></div></div><aside class="note"><span class="note-label">Project notes / 02</span><p>Python, ChromaDB, BM25, BGE embeddings, Gemini API, FastAPI</p></aside></section><section class="section grid case-section"><div class="index">01</div><div class="main-col"><h2>Exact names matter.</h2><p>Embeddings alone missed exact function names and error codes. I added BM25 keyword search alongside BGE embeddings, then merged the ranked results with Reciprocal Rank Fusion.</p><table class="spec"><tbody><tr><th scope="row">Input</th><td>Questions about a codebase</td></tr><tr><th scope="row">Retrieval</th><td>BGE embeddings + BM25</td></tr><tr><th scope="row">Fusion</th><td>Reciprocal Rank Fusion</td></tr><tr><th scope="row">Reranker</th><td>ms-marco-MiniLM-L-6-v2</td></tr><tr><th scope="row">Storage / API</th><td>ChromaDB, FastAPI, Gemini API</td></tr></tbody></table></div><aside class="note"><span class="note-label">The tradeoff</span><p>Semantic similarity helps with meaning. Keyword retrieval preserves exact identifiers.</p></aside></section><section class="section grid case-section"><div class="index">02</div><div class="main-col"><h2>Retrieve, grade, retry.</h2><p>I use HyDE for query expansion and a cross-encoder to rerank candidate passages. When relevance grading finds weak context, Corrective RAG rewrites the query and retries retrieval.</p><figure class="figure-box figure-spaced" tabindex="0" aria-label="Scrollable technical diagram"><svg class="diagram" viewBox="0 0 660 430" role="img" aria-labelledby="rag-title rag-desc" xmlns="http://www.w3.org/2000/svg"><title id="rag-title">Hybrid retrieval with a corrective retry</title><desc id="rag-desc">A query branches to BGE semantic search and BM25 keyword search, merges through Reciprocal Rank Fusion, then passes through a cross-encoder reranker and relevance grading. Weak context leads to a rewritten query and a retry. Accepted context is sent to Gemini.</desc>
+<path class="line" d="M330 47v21H155v25M330 68h175v25M155 145v27h175v26M505 145v27H330M330 242v26M330 312v26"/>
+<path class="accent-line" d="M454 289h168V24H430M430 24l7-4m-7 4 7 4"/>
+<rect class="box" x="230" y="1" width="200" height="46"/><text x="252" y="29">Query / HyDE expansion</text>
+<rect class="box" x="40" y="93" width="230" height="52"/><text x="62" y="123">BGE semantic search</text>
+<rect class="box" x="390" y="93" width="230" height="52"/><text x="416" y="123">BM25 keyword search</text>
+<rect class="box" x="205" y="198" width="250" height="44"/><text x="222" y="225">Reciprocal Rank Fusion</text>
+<rect class="box" x="205" y="268" width="250" height="44"/><text x="225" y="295">Rerank + grade context</text>
+<rect class="box" x="205" y="338" width="250" height="44"/><text x="227" y="365">Gemini / grounded answer</text>
+<text class="muted" x="472" y="235">Weak context:</text><text class="muted" x="472" y="254">rewrite + retry</text>
+<text class="muted" x="28" y="420">PII redaction and injection checks at ingestion and inference.</text>
+</svg><figcaption>Fig. 1 / Query path. The accent stroke shows the corrective loop when retrieved context is weak.</figcaption></figure></div><aside class="note"><span class="note-label">Read the diagram</span><p>The retry is conditional on retrieval quality.</p></aside></section><section class="section grid case-section"><div class="index">03</div><div class="main-col"><h2>Safety checks and evaluation.</h2><p>I added PII redaction and prompt-injection checks at ingestion and inference. I evaluated answer faithfulness and citation accuracy with RAGAS and an LLM judge.</p><p>I have not supplied a numerical benchmark for this project here. The repository is the place to inspect the implementation and evaluation harness.</p></div><aside class="note"><span class="note-label">Evidence</span><p>RAGAS and an LLM judge assess the generated answers.</p></aside></section><section class="section grid case-section"><div class="index">REF</div><div class="main-col"><h2>Project links.</h2><div class="link-row"><a href="https://github.com/jatinsri25/RAG-IT">Source code ↗</a></div><details class="legacy-links"><summary>Original demo link (unverified)</summary><p class="note legacy-note">The earlier portfolio used a placeholder .demo address. It is preserved here for reference and is not a verified working demo.</p><p class="mono legacy-url"><a href="https://rag-it.demo">https://rag-it.demo</a></p></details></div></section><nav class="section grid next-study" aria-label="Next project"><span class="index">NEXT</span><div class="main-col"><a href="/work/prayaas.html">Prayaas →</a></div></nav></main>
+<footer class="site-footer"><span>Jatin Srivastava · Noida, India</span><div class="link-row"><a href="/links.html">Link index</a><a href="#top">Back to top ↑</a></div></footer></div>
+</body>
+</html>

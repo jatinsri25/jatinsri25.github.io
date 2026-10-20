@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" id="top">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prayaas | Jatin Srivastava</title>
+  <meta name="description" content="Project notes by Jatin Srivastava: civic tech / language models, implementation decisions and evidence.">
+  <meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171613" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Prayaas | Jatin Srivastava">
+  <meta property="og:description" content="Project notes by Jatin Srivastava: civic tech / language models, implementation decisions and evidence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jatinsri25.github.io/work/prayaas.html">
+  <meta property="og:site_name" content="Jatin Srivastava">
+  <meta property="og:locale" content="en_IN">
+  <link rel="canonical" href="https://jatinsri25.github.io/work/prayaas.html">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/newsreader-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/ibm-plex-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="sheet">
+<header class="site-header">
+  <div class="identity"><a class="initials" href="/" aria-label="JS. Jatin Srivastava, home">JS.</a><span>AI &amp; DATA ENGINEER</span><span class="location">NOIDA, INDIA</span></div>
+  <nav aria-label="Profile links">
+    <a href="/assets/jatin-srivastava-resume.pdf">Résumé <span aria-hidden="true">↗</span></a>
+    <a href="mailto:srivastavajatin9898@gmail.com">Email</a>
+    <a href="https://github.com/jatinsri25">GitHub</a>
+    <a href="https://linkedin.com/in/jatinsri25">LinkedIn</a>
+    <a href="https://leetcode.com/u/jatinsri25/">LeetCode</a>
+  </nav>
+</header>
+<main id="main"><section class="case-hero grid"><div class="index">03<span>PROJECT</span></div><div class="main-col"><a class="mono" href="/#projects">← Selected work</a><p class="eyebrow case-category">Civic tech / language models</p><h1>Prayaas.</h1><p class="lede">From a citizen report to a structured record.</p><div class="link-row"><a href="https://github.com/jatinsri25">View repository ↗</a></div></div><aside class="note"><span class="note-label">Project notes / 03</span><p>Next.js, FastAPI, Gemini API, Redis, PostgreSQL</p></aside></section><section class="section grid case-section"><div class="index">01</div><div class="main-col"><h2>A report becomes a ticket.</h2><p>I built Prayaas to convert citizen voice and text reports into structured JSON tickets. The pipeline processes 500+ reports per month.</p><table class="spec"><tbody><tr><th scope="row">Input</th><td>Voice or text report</td></tr><tr><th scope="row">Output</th><td>JSON ticket and suggested responses</td></tr><tr><th scope="row">Application</th><td>Next.js and FastAPI</td></tr><tr><th scope="row">Model API</th><td>Google Gemini API</td></tr><tr><th scope="row">Data</th><td>Redis and PostgreSQL</td></tr></tbody></table></div><aside class="note"><span class="note-label">Interface contract</span><p>Unstructured input enters. A structured record leaves.</p></aside></section><section class="section grid case-section"><div class="index">02</div><div class="main-col"><h2>Six explicit stages.</h2><figure class="figure-box" tabindex="0" aria-label="Scrollable technical diagram"><svg class="diagram" viewBox="0 0 660 342" role="img" aria-labelledby="prayaas-title prayaas-desc" xmlns="http://www.w3.org/2000/svg"><title id="prayaas-title">Six stages from citizen report to ticket</title><desc id="prayaas-desc">Transcription, prompt injection checks, PII redaction, token budgeting, LLM formatting and suggested responses run in order.</desc>
+<path class="accent-line" d="M204 79h23m-7-4 7 4-7 4M433 79h23m-7-4 7 4-7 4M558 111v49H102v62m-4-7 4 7 4-7M204 254h23m-7-4 7 4-7 4M433 254h23m-7-4 7 4-7 4"/>
+<rect class="box" x="1" y="45" width="203" height="66"/><text x="17" y="69">01 / TRANSCRIPTION</text><text class="muted" x="17" y="93">Voice or text input</text>
+<rect class="box" x="229" y="45" width="204" height="66"/><text x="245" y="69">02 / INJECTION CHECK</text><text class="muted" x="245" y="93">Inspect the prompt</text>
+<rect class="box" x="458" y="45" width="201" height="66"/><text x="474" y="69">03 / PII REDACTION</text><text class="muted" x="474" y="93">Remove private data</text>
+<rect class="box" x="1" y="222" width="203" height="66"/><text x="17" y="246">04 / TOKEN BUDGET</text><text class="muted" x="17" y="270">Bound the context</text>
+<rect class="box" x="229" y="222" width="204" height="66"/><text x="245" y="246">05 / LLM FORMATTING</text><text class="muted" x="245" y="270">Structured JSON</text>
+<rect class="box" x="458" y="222" width="201" height="66"/><text x="474" y="246">06 / SUGGESTIONS</text><text class="muted" x="474" y="270">Suggested responses</text>
+<text class="muted" x="1" y="333">Gemini fallback chain: retry on HTTP 429 and 503.</text></svg><figcaption>Fig. 1 / The report pipeline. Each stage has a distinct responsibility before a ticket is returned.</figcaption></figure></div><aside class="note"><span class="note-label">Input handling</span><p>Checks and redaction happen before LLM formatting.</p></aside></section><section class="section grid case-section"><div class="index">03</div><div class="main-col"><h2>Handling an unavailable model API.</h2><p>I added a Gemini fallback chain that retries HTTP 429 and 503 errors. The reported request success rate is above <span class="case-proof">99%</span>.</p><p>That measures whether the API request succeeds. It is not a measure of ticket correctness.</p></div><aside class="note"><span class="note-label">Metric</span><p>Request success and answer quality are different checks.</p></aside></section><section class="section grid case-section"><div class="index">REF</div><div class="main-col"><h2>Project links.</h2><div class="link-row"><a href="https://github.com/jatinsri25">Source code ↗</a></div><details class="legacy-links"><summary>Original demo link (unverified)</summary><p class="note legacy-note">The earlier portfolio used a placeholder .demo address. It is preserved here for reference and is not a verified working demo.</p><p class="mono legacy-url"><a href="https://prayaas.demo">https://prayaas.demo</a></p></details></div></section><nav class="section grid next-study" aria-label="Next project"><span class="index">NEXT</span><div class="main-col"><a href="/work/veltrix-ai.html">Veltrix AI →</a></div></nav></main>
+<footer class="site-footer"><span>Jatin Srivastava · Noida, India</span><div class="link-row"><a href="/links.html">Link index</a><a href="#top">Back to top ↑</a></div></footer></div>
+</body>
+</html>

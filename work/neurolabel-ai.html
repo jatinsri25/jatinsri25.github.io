@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" id="top">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NeuroLabel AI | Jatin Srivastava</title>
+  <meta name="description" content="Project notes by Jatin Srivastava: computer vision / data tooling, implementation decisions and evidence.">
+  <meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171613" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="NeuroLabel AI | Jatin Srivastava">
+  <meta property="og:description" content="Project notes by Jatin Srivastava: computer vision / data tooling, implementation decisions and evidence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jatinsri25.github.io/work/neurolabel-ai.html">
+  <meta property="og:site_name" content="Jatin Srivastava">
+  <meta property="og:locale" content="en_IN">
+  <link rel="canonical" href="https://jatinsri25.github.io/work/neurolabel-ai.html">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/newsreader-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/ibm-plex-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="sheet">
+<header class="site-header">
+  <div class="identity"><a class="initials" href="/" aria-label="JS. Jatin Srivastava, home">JS.</a><span>AI &amp; DATA ENGINEER</span><span class="location">NOIDA, INDIA</span></div>
+  <nav aria-label="Profile links">
+    <a href="/assets/jatin-srivastava-resume.pdf">Résumé <span aria-hidden="true">↗</span></a>
+    <a href="mailto:srivastavajatin9898@gmail.com">Email</a>
+    <a href="https://github.com/jatinsri25">GitHub</a>
+    <a href="https://linkedin.com/in/jatinsri25">LinkedIn</a>
+    <a href="https://leetcode.com/u/jatinsri25/">LeetCode</a>
+  </nav>
+</header>
+<main id="main"><section class="case-hero grid"><div class="index">01<span>PROJECT</span></div><div class="main-col"><a class="mono" href="/#projects">← Selected work</a><p class="eyebrow case-category">Computer vision / data tooling</p><h1>NeuroLabel AI.</h1><p class="lede">Model-assisted labels. Human decisions.</p><div class="link-row"><a href="https://github.com/jatinsri25/NeuroLabelAI">View repository ↗</a></div></div><aside class="note"><span class="note-label">Project notes / 01</span><p>React, TypeScript, Konva.js, FastAPI, SQLAlchemy, SQLite, YOLOv8</p></aside></section><section class="section grid case-section"><div class="index">01</div><div class="main-col"><h2>The annotation problem.</h2><p>I wanted a tool where a model can suggest bounding boxes and a person can correct them without losing the edits. The starting workflow covers cars, pedestrians and traffic lights in driving images.</p><table class="spec"><tbody><tr><th scope="row">Input</th><td>Driving images</td></tr><tr><th scope="row">Model</th><td>YOLOv8, with optional test-time augmentation</td></tr><tr><th scope="row">Review</th><td>React, TypeScript and Konva.js</td></tr><tr><th scope="row">Persistence</th><td>FastAPI, SQLAlchemy and SQLite</td></tr><tr><th scope="row">Export</th><td>JSON labels</td></tr></tbody></table></div><aside class="note"><span class="note-label">Scope</span><p>An annotation workflow. Model output remains subject to human review.</p></aside></section><section class="section grid case-section"><div class="index">02</div><div class="main-col"><h2>From prediction to saved label.</h2><p>I added zoom, drag, resize and delete controls to the canvas, plus a confidence filter. Test-time augmentation runs the model at several scales to look for small and distant objects. FastAPI persists the corrections through SQLAlchemy.</p><figure class="figure-box figure-spaced" tabindex="0" aria-label="Scrollable technical diagram"><svg class="diagram" viewBox="0 0 660 260" role="img" aria-labelledby="neuro-title neuro-desc" xmlns="http://www.w3.org/2000/svg"><title id="neuro-title">Annotation workflow</title><desc id="neuro-desc">A driving image passes through YOLOv8. A person reviews and edits bounding boxes on a Konva canvas. FastAPI and SQLAlchemy persist edits in SQLite, and labels export as JSON.</desc>
+<path class="line" d="M160 65h70m-7-4 7 4-7 4M410 65h70m-7-4 7 4-7 4M570 100v45H320v35m-4-7 4 7 4-7"/>
+<path class="accent-line" d="M410 210h70m-7-4 7 4-7 4"/>
+<rect class="box" x="1" y="30" width="159" height="70"/><text x="20" y="69">Driving image</text>
+<rect class="box" x="230" y="30" width="180" height="70"/><text x="249" y="59">YOLOv8 pre-labels</text><text class="muted" x="249" y="82">Optional TTA</text>
+<rect class="box" x="480" y="30" width="179" height="70"/><text x="498" y="59">Human review</text><text class="muted" x="498" y="82">Konva canvas</text>
+<rect class="box" x="230" y="180" width="180" height="62"/><text x="249" y="205">FastAPI → SQLite</text><text class="muted" x="249" y="227">Save each edit</text>
+<rect class="box" x="480" y="180" width="179" height="62"/><text x="498" y="215">JSON label export</text></svg><figcaption>Fig. 1 / The original annotation workflow. The highlighted path is the saved-label export.</figcaption></figure></div><aside class="note"><span class="note-label">Design decision</span><p>The person reviewing the frame gets the final say.</p></aside></section><section class="section grid case-section" id="interface"><div class="index">03</div><div class="main-col"><h2>The review workspace.</h2><p>The repository now includes dataset audits, correction history and frozen releases. This is the actual repository screenshot, showing authored synthetic fixtures.</p></div><aside class="note"><span class="note-label">Image provenance</span><p><a href="https://github.com/jatinsri25/NeuroLabelAI/blob/main/dashboard_preview.png">Repository screenshot ↗</a></p></aside><figure class="full-figure screen-figure"><a class="screenshot-link" href="/assets/neurolabel-dashboard.png" aria-label="Open full-size NeuroLabel workspace screenshot"><img src="/assets/neurolabel-dashboard.png" width="1440" height="1370" loading="lazy" decoding="async" alt="NeuroLabel dataset review workspace showing synthetic frames, flagged annotations, class distribution and release blockers."></a><figcaption>Fig. 2 / NeuroLabel's current review interface. The pictured counts describe synthetic fixtures, not a real driving dataset.</figcaption></figure></section><section class="section grid case-section"><div class="index">04</div><div class="main-col"><h2>What the evidence does and does not show.</h2><p>The current repository reports <span class="mono">0.0000</span> held-out mAP for its fixture detectors, and the promotion gate blocks the candidate. The run checks that the pipeline executes; it does not establish useful detection or reduced annotation cost. Real KITTI results are not measured.</p><p><a href="https://github.com/jatinsri25/NeuroLabelAI/blob/main/docs/RESULTS.md">Read the recorded experiment results ↗</a></p></div><aside class="note"><span class="note-label">Boundary</span><p>This personal project is separate from my work at Zensar.</p></aside></section><section class="section grid case-section"><div class="index">REF</div><div class="main-col"><h2>Project links.</h2><div class="link-row"><a href="https://github.com/jatinsri25/NeuroLabelAI">Source code ↗</a><a href="https://github.com/jatinsri25/AV-labeller">Original repository link ↗</a></div><details class="legacy-links"><summary>Original demo link (unverified)</summary><p class="note legacy-note">The earlier portfolio used a placeholder .demo address. It is preserved here for reference and is not a verified working demo.</p><p class="mono legacy-url"><a href="https://neurolabel.demo">https://neurolabel.demo</a></p></details></div></section><nav class="section grid next-study" aria-label="Next project"><span class="index">NEXT</span><div class="main-col"><a href="/work/rag-it.html">RAG-IT →</a></div></nav></main>
+<footer class="site-footer"><span>Jatin Srivastava · Noida, India</span><div class="link-row"><a href="/links.html">Link index</a><a href="#top">Back to top ↑</a></div></footer></div>
+</body>
+</html>

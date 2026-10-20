@@ -1,71 +1,47 @@
-# Jatin Srivastava - Developer Portfolio
+# Jatin Srivastava
 
-A modern, animated developer portfolio website built with React, Vite, Tailwind CSS, and Framer Motion.
+A static portfolio and engineering notebook. Warm paper, Newsreader, IBM Plex Mono, numbered project notes and technical diagrams. No browser JavaScript, framework, remote fonts or runtime dependencies.
 
-🔗 **Live Demo:** [https://portfolio-jatin-srivastavas-projects-4aa3e419.vercel.app](https://portfolio-jatin-srivastavas-projects-4aa3e419.vercel.app)
+## Preview
 
-## 🚀 Features
+Use Python 3 and Node.js 18 or later. No dependency installation is needed.
 
-- **Modern Stack**: Built with React 18, Vite, and Tailwind CSS.
-- **Animations**: Smooth page transitions and scroll animations using Framer Motion.
-- **Responsive**: Fully responsive design for mobile, tablet, and desktop.
-- **Dark Mode**: Sleek dark theme by default.
-- **Command Palette**: Press `Ctrl+K` (or `Cmd+K` on Mac) to navigate the site quickly.
-- **Performance**: Optimized for speed and SEO.
-
-## 🛠️ Tech Stack
-
-- **Framework**: [React](https://reactjs.org/) + [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Scroll**: [React Scroll](https://www.npmjs.com/package/react-scroll)
-
-## 📦 Installation
-
-1.  Clone the repository:
-    ```bash
-    git clone https://github.com/jatinsri25/jatinsri25.github.io.git
-    cd jatinsri25.github.io
-    ```
-
-2.  Install dependencies:
-    ```bash
-    npm install
-    ```
-
-3.  Start the development server:
-    ```bash
-    npm run dev
-    ```
-
-## 🚀 Deployment
-
-This project is configured to be deployed on **GitHub Pages** or **Vercel**.
-
-### GitHub Pages
-
-1.  Update `vite.config.js` with your base URL if needed (default is `/`).
-2.  Run the build command:
-    ```bash
-    npm run build
-    ```
-3.  Deploy the `dist` folder to your `gh-pages` branch.
-
-### Vercel / Netlify
-
-Simply connect your GitHub repository and the deployment will be handled automatically.
-
-## 📁 Project Structure
-
+```sh
+npm run dev
 ```
-src/
-├── components/
-│   ├── layout/       # Navbar, Footer, Layout wrapper
-│   ├── sections/     # Hero, About, Experience, Projects, Skills, Contact
-│   └── ui/           # Reusable UI components (Buttons, Section, etc.)
-├── data/             # Static data for portfolio content
-├── index.css         # Global styles and Tailwind directives
-├── main.jsx          # Entry point
-└── App.jsx           # Main application component
+
+Open http://127.0.0.1:4173. The theme follows the operating system. The home page also includes a print stylesheet.
+
+## Check and package
+
+```sh
+npm run check
+npm run build
+npm run preview
 ```
+
+Stop the development server before starting the preview on the same port. The check validates page metadata, local navigation, asset references, old fragment identifiers and preservation of the original external destinations.
+
+## Editing
+
+- `index.html`: introduction, projects, experience, tools and contact.
+- `work/*.html`: five standalone project notes.
+- `styles.css`: shared styles, responsive layouts, dark mode and print.
+- `links.html`: current and earlier profile, resume and project destinations.
+- `assets/`: local fonts, font licenses, actual NeuroLabel screenshot and supplied resume PDF.
+- `docs/content-notes.md`: content sources and measurement caveats.
+- `docs/preserved-links.json`: original navigation destinations, checked by `npm run check`.
+
+Edit the HTML and CSS directly. The build only copies public files to `dist/`. It excludes legacy source, documentation and tooling.
+
+## Hosting
+
+The existing GitHub Pages configuration publishes the root of `main`. The root HTML and `.nojekyll` work with that configuration without a framework build. A feature branch does not change the public Pages deployment.
+
+Vercel uses the explicit `buildCommand`, `outputDirectory` and `framework: null` in `vercel.json`. Standalone case-study paths serve their own HTML; there is no SPA catch-all rewrite.
+
+Canonical URLs currently use https://jatinsri25.github.io. Update the canonical and Open Graph URLs, `robots.txt` and `sitemap.xml` together if a different primary domain is chosen.
+
+Earlier Vercel address: https://portfolio-jatin-srivastavas-projects-4aa3e419.vercel.app
+
+The previous React application remains available in Git history. `legacy_backup/` is the older archived portfolio and is excluded from the packaged build.

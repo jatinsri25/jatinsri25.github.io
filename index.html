@@ -1,19 +1,131 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jatin Srivastava | Frontend Developer</title>
-    <meta name="description" content="Portfolio of Jatin Srivastava, a Senior Frontend Engineer specialized in building pixel-perfect, engaging, and accessible digital experiences with React and Modern Web Technologies.">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-background text-text">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<html lang="en" id="top">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jatin Srivastava | AI &amp; Data Engineer</title>
+  <meta name="description" content="AI and data engineer. Selected work in computer vision, data validation, retrieval and LLM applications.">
+  <meta name="theme-color" content="#f3efe6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#171613" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Jatin Srivastava | AI &amp; Data Engineer">
+  <meta property="og:description" content="AI and data engineer. Selected work in computer vision, data validation, retrieval and LLM applications.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jatinsri25.github.io/">
+  <meta property="og:site_name" content="Jatin Srivastava">
+  <meta property="og:locale" content="en_IN">
+  <link rel="canonical" href="https://jatinsri25.github.io/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/newsreader-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/ibm-plex-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="sheet">
+<header class="site-header">
+  <div class="identity"><a class="initials" href="/" aria-label="JS. Jatin Srivastava, home">JS.</a><span>AI &amp; DATA ENGINEER</span><span class="location">INDIA</span></div>
+  <nav aria-label="Profile links">
+    <a href="/assets/jatin-srivastava-resume.pdf">Résumé <span aria-hidden="true">↗</span></a>
+    <a href="mailto:srivastavajatin9898@gmail.com">Email</a>
+    <a href="https://github.com/jatinsri25">GitHub</a>
+    <a href="https://linkedin.com/in/jatinsri25">LinkedIn</a>
+    <a href="https://leetcode.com/u/jatinsri25/">LeetCode</a>
+  </nav>
+</header>
+<main id="main">
+<section class="hero grid" id="home" aria-labelledby="name">
+  <div class="index">00<span>INTRO</span></div>
+  <div class="main-col"><h1 id="name">Jatin<br>Srivastava.</h1><p class="lede">I work on the data behind machine learning, and build search and LLM apps in Python.</p></div>
+  <aside class="note hero-note" aria-label="Selected result"><span class="note-label">From my work at Zensar</span><span class="proof-number">60%</span><p>less manual preprocessing with Python, OpenCV and YOLOv8.</p><div class="proof-line" aria-hidden="true"></div><p>AV perception data<br>Oct 2025 – Jan 2026</p></aside>
+  <div class="hero-bottom"><nav class="link-row" aria-label="Contents"><a href="#projects">01 / Work</a><a href="#experience">02 / Experience</a><a href="#skills">03 / Tools</a><a href="#contact">04 / Contact</a></nav><span class="mono location">SELECTED WORK &amp; NOTES / 2026</span></div>
+</section>
+<section class="section grid" id="about" aria-labelledby="about-heading">
+  <div class="index">NOTE</div>
+  <div class="main-col"><h2 class="eyebrow section-heading" id="about-heading">A little context</h2><p class="intro">I'm Jatin, an engineer. For the past year I've worked on the data side of machine learning: checking labels, fixing preprocessing, and building tools around models. On my own I build search and LLM apps in Python. I'm looking for a data or AI engineering role.</p></div>
+  <aside class="note"><span class="note-label">Education</span><p>B.Tech, Information Technology<br>Ajay Kumar Garg Engineering College<br>2021 – 2025</p></aside>
+</section>
+<section class="section" id="projects" aria-labelledby="work-heading">
+  <div class="grid section-heading"><div class="index">01</div><h2 class="main-col" id="work-heading">Selected work.</h2><p class="note">Systems I've built.<br>What goes in, what happens,<br>and what comes out.</p></div>
+  <div class="work-list"><article class="project grid ">
+      <div class="index project-number">01</div>
+      <div class="main-col"><p class="eyebrow">Computer vision / data tooling</p>
+        <h3><a href="/work/neurolabel-ai.html">NeuroLabel AI <span aria-hidden="true">↗</span></a></h3>
+        <p class="project-text">I built an annotation tool for driving images: YOLOv8 proposes boxes, and a person checks and corrects them.</p>
+        <p class="stack">React, TypeScript, Konva.js, FastAPI, SQLAlchemy, SQLite, YOLOv8</p>
+        <div class="link-row"><a href="/work/neurolabel-ai.html">Read project notes →</a><a href="https://github.com/jatinsri25/NeuroLabelAI">GitHub ↗</a></div>
+      </div>
+      <aside class="note"><span class="note-label">Field note / 01</span><p>A model prediction is a starting point. The saved human edit is the label.</p>
+        <p class="work-mark"><a href="/work/neurolabel-ai.html#interface">View the review workspace →</a></p>
+      </aside>
+    </article><article class="project grid ">
+      <div class="index project-number">02</div>
+      <div class="main-col"><p class="eyebrow">Retrieval / language models</p>
+        <h3><a href="/work/rag-it.html">RAG-IT <span aria-hidden="true">↗</span></a></h3>
+        <p class="project-text">I combined semantic and keyword search so questions about a codebase can find exact function names and error codes.</p>
+        <p class="stack">Python, ChromaDB, BM25, BGE embeddings, Gemini API, FastAPI</p>
+        <div class="link-row"><a href="/work/rag-it.html">Read project notes →</a><a href="https://github.com/jatinsri25/RAG-IT">GitHub ↗</a></div>
+      </div>
+      <aside class="note"><span class="note-label">Field note / 02</span><p>Two retrieval paths. One ranked context. A retry when the evidence is weak.</p>
+
+      </aside>
+    </article><article class="project grid ">
+      <div class="index project-number">03</div>
+      <div class="main-col"><p class="eyebrow">Civic tech / language models</p>
+        <h3><a href="/work/prayaas.html">Prayaas <span aria-hidden="true">↗</span></a></h3>
+        <p class="project-text">I built a six-step pipeline that turns citizen voice and text reports into structured JSON tickets.</p>
+        <p class="stack">Next.js, FastAPI, Gemini API, Redis, PostgreSQL</p>
+        <div class="link-row"><a href="/work/prayaas.html">Read project notes →</a><a href="https://github.com/jatinsri25">GitHub ↗</a></div>
+      </div>
+      <aside class="note"><span class="note-label">Field note / 03</span><p>500+ reports per month. Retries for HTTP 429 and 503 errors.</p>
+
+      </aside>
+    </article><article class="project grid small-project">
+      <div class="index project-number">04</div>
+      <div class="main-col"><p class="eyebrow">Application engineering</p>
+        <h3><a href="/work/ai-task-generator.html">AI Task Generator <span aria-hidden="true">↗</span></a></h3>
+        <p class="project-text">I built an LLM task manager with Redis caching, p95 latency below 200 ms, and 95% test coverage in GitHub Actions.</p>
+        <p class="stack">MERN, Gemini API, Redis, GitHub Actions</p>
+        <div class="link-row"><a href="/work/ai-task-generator.html">Read project notes →</a><a href="https://github.com/jatinsri25/AI-todo-app/tree/main/TODO">GitHub ↗</a></div>
+      </div>
+      <aside class="note"><span class="note-label">Field note / 04</span><p>Also listed as AI-Powered Task Manager in my earlier portfolio.</p>
+
+      </aside>
+    </article><article class="project grid small-project">
+      <div class="index project-number">05</div>
+      <div class="main-col"><p class="eyebrow">Earlier work / real-time systems</p>
+        <h3><a href="/work/quirkquack.html">QuirkQuack <span aria-hidden="true">↗</span></a></h3>
+        <p class="project-text">I built a chat app with JWT-secured WebSocket connections and Redis Pub/Sub, handling 100+ concurrent connections with message delivery below 50 ms.</p>
+        <p class="stack">React.js, Node.js, Socket.IO, MongoDB, Redis, JWT</p>
+        <div class="link-row"><a href="/work/quirkquack.html">Read project notes →</a><a href="https://github.com/jatinsri25/QuirkQuack">GitHub ↗</a></div>
+      </div>
+      <aside class="note"><span class="note-label">Field note / 05</span><p>Retained from my earlier portfolio and AI engineer résumé.</p>
+
+      </aside>
+    </article></div>
+</section>
+<section class="section" id="experience" aria-labelledby="experience-heading">
+  <div class="grid section-heading"><div class="index">02</div><h2 class="main-col" id="experience-heading">Work, in practice.</h2></div>
+  <article class="experience grid"><div class="main-col"><h3>Zensar Technologies</h3><p class="role">ML Data Engineer &amp; Analyst<br>NVIDIA autonomous vehicle project</p><ul>
+    <li>I profiled and quality-checked 50,000+ image samples, and wrote validation scripts across 12+ training splits that reduced systematic labeling errors by over 30%.</li>
+    <li>I automated frame extraction, bounding-box generation and dataset versioning.</li>
+    <li>With NVIDIA's ML researchers, I found class imbalance across 15+ object categories and refined labeling rules for camera and LiDAR tasks.</li>
+    <li>Resolving data inconsistencies contributed to a 4-point improvement in downstream F1 score.</li>
+  </ul></div><aside class="note"><span class="note-label">Oct 2025 – Jan 2026</span><p>Remote, India</p></aside></article>
+  <article class="experience grid"><div class="main-col"><h3>CMP Techseract LLP</h3><p class="role">Full-Stack Developer Intern</p><ul>
+    <li>I shipped three MERN applications through a CI/CD pipeline, serving 1,000+ daily users.</li>
+    <li>I reduced average API response time from 400 ms to under 200 ms with MongoDB indexes and connection pooling.</li>
+    <li>Integrating payments and notifications increased engagement by 22%.</li>
+  </ul></div><aside class="note"><span class="note-label">Jun 2024 – Aug 2024</span><p>Lucknow, India</p></aside></article>
+</section>
+<section class="section grid" id="skills" aria-labelledby="tools-heading">
+  <div class="index">03</div><div class="main-col"><h2 class="section-heading" id="tools-heading">Tools I work with.</h2><dl class="tools mono"><div class="tool-group"><dt>Languages</dt><dd>Python, SQL, JavaScript, TypeScript, C++</dd></div><div class="tool-group"><dt>Data &amp; ML</dt><dd>Pandas, NumPy, Scikit-learn, OpenCV, YOLOv8, PyTorch, TensorFlow, Keras, Hugging Face Transformers, MLflow. Apache Spark: studied, not used at work.</dd></div><div class="tool-group"><dt>LLM &amp; search</dt><dd>LangChain, LangGraph, RAG, FAISS, ChromaDB, Pinecone, OpenAI API, Google Gemini API</dd></div><div class="tool-group"><dt>Databases</dt><dd>PostgreSQL, MongoDB, SQLite, Redis, Neo4j</dd></div><div class="tool-group"><dt>Backend &amp; ops</dt><dd>FastAPI, Node.js, Express.js, REST APIs, Docker, Git, GitHub Actions, AWS</dd></div><div class="tool-group"><dt>Frontend</dt><dd>React.js, Next.js, Tailwind CSS</dd></div></dl></div>
+  <aside class="note"><span class="note-label">A working inventory</span><p>Grouped by the part of the system they help me build.</p></aside>
+</section>
+<section class="section grid contact" id="contact" aria-labelledby="contact-heading">
+  <div class="index">04</div><div class="main-col"><h2 class="contact-heading" id="contact-heading">Have something<br>in mind?</h2><p>I'd like to hear about it.</p><p><a class="contact-email" href="mailto:srivastavajatin9898@gmail.com">srivastavajatin9898@gmail.com ↗</a></p><div class="link-row"><a href="https://github.com/jatinsri25">GitHub ↗</a><a href="https://linkedin.com/in/jatinsri25">LinkedIn ↗</a><a href="https://leetcode.com/u/jatinsri25/">LeetCode ↗</a></div></div>
+  <aside class="note"><span class="note-label">For a closer look</span><p><a href="/assets/jatin-srivastava-resume.pdf">Download my résumé (PDF)</a></p><p><a href="https://drive.google.com/file/d/19HStCQF_2NlCMDRQBuClxfxfMSFu_k2V/view?usp=sharing">Original Drive résumé ↗</a></p></aside>
+</section>
+</main>
+<footer class="site-footer"><span>Jatin Srivastava · India</span><div class="link-row"><a href="/links.html">Link index</a><a href="#top">Back to top ↑</a></div></footer></div>
+</body>
 </html>

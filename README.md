@@ -25,7 +25,7 @@ Stop the development server before starting the preview on the same port. The ch
 ## Editing
 
 - `index.html`: introduction, projects, experience, tools and contact.
-- `work/*.html`: six standalone project notes.
+- `work/*.html`: five standalone project notes.
 - `styles.css`: shared styles, responsive layouts, dark mode and print.
 - `links.html`: current and earlier profile, resume and project destinations.
 - `assets/`: local fonts, font licenses, actual NeuroLabel screenshot and supplied resume PDF.

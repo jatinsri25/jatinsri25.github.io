@@ -21,6 +21,10 @@ Lighthouse used its default mobile emulation against the local HTTP preview. The
 - `npm run check`, `npm run build` and `git diff --check` pass.
 - The external `.demo` destinations remain unverified placeholders, clearly labeled as such. Preservation of external URLs is checked; availability of all third-party destinations is not guaranteed.
 
+## Content update, 21 October 2026
+
+The portfolio now has five projects and eight HTML pages. After the requested project and city removal, checked all eight pages at 360 and 1440 pixels: no removed text, missing project navigation or horizontal overflow. Verified the removed project route returns 404, the remaining project numbers are consecutive, and the next-project link from Prayaas opens AI Task Generator. All 102 local references and the build pass. The Lighthouse and axe results above describe the original 20 October audit; they were not rerun for this content-only update. Preview captures below are current.
+
 ## Preview captures
 
 ![Desktop home](preview-desktop.png)
